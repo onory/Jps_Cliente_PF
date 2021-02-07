@@ -1,10 +1,4 @@
-/* Mapeo de una clase llava a una tabla de DB
- * se utilizara de la capa de datos a la presentacion con diseño BDO o VO
- * tendra un mapeo con la capa de BD
- * Se tienen todos los atributos de la tabla de cliente, 
- *
- */
-package Dominio;
+package dominio;
 
 public class Cliente {
     //mismos atributos que la tabla de cliente de la DB , mapeo
@@ -25,6 +19,8 @@ public class Cliente {
         this.idCliente = idCliente;
     }
 
+    // constructor sin campo de idCliente
+    
     public Cliente(String nombre, String apellido, String email, String telefono, double saldo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,6 +28,8 @@ public class Cliente {
         this.telefono = telefono;
         this.saldo = saldo;
     }
+    
+    // constructor con todos los atributo
 
     public Cliente(int idCliente, String nombre, String apellido, String email, String telefono, double saldo) {
         this.idCliente = idCliente;
@@ -41,9 +39,9 @@ public class Cliente {
         this.telefono = telefono;
         this.saldo = saldo;
     }
-    
-    // MEtodos Getter y Setter
 
+    // MEtodos Getter y Setter
+    
     public int getIdCliente() {
         return idCliente;
     }
@@ -96,7 +94,5 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "idCliente=" + idCliente + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + ", saldo=" + saldo + '}';
     }
-    
-    
     
 }
