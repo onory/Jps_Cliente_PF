@@ -24,7 +24,7 @@ public class Cliente {
     public Cliente(int idCliente) {
         this.idCliente = idCliente;
     }
-        // constructor sin campo de idCliente
+
     public Cliente(String nombre, String apellido, String email, String telefono, double saldo) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,7 +32,7 @@ public class Cliente {
         this.telefono = telefono;
         this.saldo = saldo;
     }
-        // constructor con todos los atributo
+
     public Cliente(int idCliente, String nombre, String apellido, String email, String telefono, double saldo) {
         this.idCliente = idCliente;
         this.nombre = nombre;

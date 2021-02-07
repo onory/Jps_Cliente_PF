@@ -12,20 +12,13 @@ import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Conexion {
     
-    private static final String JDBC_URL="jdbc:mysql://localhost:3306/control_clientes?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL="jdbc:mysql://localhost:3306/control_clientes?useSSL=false&useTimezone=true&serverTimezon=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER="root";
     private static final String JDBC_PASSWORD="admin";
     
     //Metodo para recuperar coneccion a DB
     
     public static DataSource getDAtaSource(){ //La libreria de esta clase se agrego en el POM
-        
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        }catch (ClassNotFoundException ex){
-              ex.printStackTrace(System.out);
-        }
-        
        BasicDataSource ds = new BasicDataSource(); 
        ds.setUrl(JDBC_URL);
        ds.setUsername(JDBC_USER);
