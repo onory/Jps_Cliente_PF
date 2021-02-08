@@ -92,6 +92,7 @@ public class ClienteDaoJDBC {
         }
         return cliente;
     }
+    
     // metodo par ainsertar un objeto cliente
     public int insertar(Cliente cliente) {
         Connection conn = null;

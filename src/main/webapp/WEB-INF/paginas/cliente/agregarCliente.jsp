@@ -30,7 +30,8 @@ type="email", telefono, numero, valida que sea deese tipo el campo
                         <label for="apellido">Apellido</label>
                         <input type="text" class="form-control" name="apellido" required>
                     </div>
-                    <div class="form-group">E-mail</label>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
                         <input type="email" class="form-control" name="email" required>
                     </div>
                     <div class="form-group">

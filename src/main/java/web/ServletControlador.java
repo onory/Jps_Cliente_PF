@@ -25,26 +25,24 @@ public class ServletControlador extends HttpServlet{
                 case "editar": //llama un metdo para editar cliente
                     this.editarCliente(request, response);
                     break;
+                case "eliminar": //llama un metdo para editar cliente
+                    this.eliminarCliente(request, response);
+                    break;
                 default:    
                    this.accionDefault(request, response); //redirije a  JSP clientes
             }
         }else{
+            //recupera el listado de clientes, compartirlo en request a clientes.jsp por el metodo  accionDefault
              this.accionDefault(request, response); //redirije a  JSP clientes si la accion es null
                 
         }
-        
-        
-        
-        //recupera el listado de clientes, compartirlo en request a clientes.jsp por el metodo  accionDefault
-        this.accionDefault(request, response);
-        
     }
     
     // anteriormente se haci en metodo doget, como paguina de iniciio, sin embargo se requerira en otro JSP por ello se separa en un metodo mas
     
      private void accionDefault (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         
-        //redirije a  JSP clientes
+        //vuelve a listar los clientes y se toma como accion por default
         
         List<Cliente> clientes = new ClienteDaoJDBC().listar();
         System.out.println("clientes = " + clientes);
@@ -78,8 +76,7 @@ public class ServletControlador extends HttpServlet{
         // no coloca el fi para validar el dato como saldo, dado que es el mismoa uto incrementable de la DB
         Cliente cliente = new ClienteDaoJDBC().encontrar(new Cliente(idCliente));
         request.setAttribute("cliente", cliente);
-        String jspEditar; //este JSP desplegara al info recuperada de la DB
-        jspEditar = "/WEB-INF/paginas/cliente/editarCliente.jsp";
+        String jspEditar = "/WEB-INF/paginas/cliente/editarCliente.jsp";  //este JSP desplegara al info recuperada de la DB
         request.getRequestDispatcher(jspEditar).forward(request,response);
         
     }
@@ -108,10 +105,9 @@ public class ServletControlador extends HttpServlet{
             }
         }else{
              this.accionDefault(request, response); //redirije a  JSP clientes si accin es null
-                
         }
-        
-   }
+    }
+    
     //Metodo para insertar clientes con la informacion del formulario del JSP agregarcliente
     private void insertarCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         
@@ -174,6 +170,30 @@ public class ServletControlador extends HttpServlet{
         System.out.println("Registros modificados = " + registrosModificados);
         
         //redirigimos haciala accion por default a JSP cliente
+        this.accionDefault(request, response);
+    }
+    
+    //Metodo para eliminar clientes con la informacion del formulario del JSP agregarcliente
+    
+    private void eliminarCliente(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        
+        //recupera informacion del formulario del JSP editarCliente
+        
+        int idCliente = Integer.parseInt(request.getParameter("idCliente")); // recuperamos el valor de idCliente
+       
+        //Creamos el objeto de cliente(modelo) con los datos que estamos recibiendo del formulario
+        
+        Cliente cliente = new Cliente(idCliente);
+        
+        //Eliminamos el objeto en la DB
+        
+        int registrosModificados = new ClienteDaoJDBC().eliminar(cliente);
+        System.out.println("Registros modificados = " + registrosModificados);
+        
+        //redirigimos haciala accion por default a JSP cliente y se vuelva a generar el listado
+        this.accionDefault(request, response);
+        
+        //Redirigimos hacia accion por default
         this.accionDefault(request, response);
     }
 }

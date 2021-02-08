@@ -29,16 +29,16 @@ clientes.jsp solo contendra los elementos HTML del web, los demas sera llamado p
     <body>
         
      <!-- Incluimos el Cabecero desde el JSP -->
-    <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
+    <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp"/>
     
     <!-- seccion de botones de navegacion -->
-    <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
+    <jsp:include page="/WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
     
         <!-- seccion de botones de navegacion -->
-    <jsp:include page="WEB-INF/paginas/cliente/listadoClientes.jsp"/>
+    <jsp:include page="/WEB-INF/paginas/cliente/listadoClientes.jsp"/>
 
      <!-- seccion de pie de paguina -->
-     <jsp:include page="WEB-INF/paginas/comunes/piePagina.jsp"/>
+     <jsp:include page="/WEB-INF/paginas/comunes/piePagina.jsp"/>
    
     
         

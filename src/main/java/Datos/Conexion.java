@@ -17,13 +17,17 @@ public class Conexion {
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "admin";
     
+    private static BasicDataSource dataSource; //este objeto sera el que se utilizara para efectuar las aconexiones, asi se evita crear barios inecesario
+    
     public static DataSource getDataSource(){ //La libreria de esta clase se agrego en el POM
-        BasicDataSource ds = new BasicDataSource();
-        ds.setUrl(JDBC_URL);
-        ds.setUsername(JDBC_USER);
-        ds.setPassword(JDBC_PASSWORD);
-        ds.setInitialSize(50); //determina las conexiones a DB pool de conexiones
-        return ds;
+        if(dataSource == null){
+        dataSource = new BasicDataSource();
+        dataSource.setUrl(JDBC_URL);
+        dataSource.setUsername(JDBC_USER);
+        dataSource.setPassword(JDBC_PASSWORD);
+        dataSource.setInitialSize(50); //determina las conexiones a DB pool de conexiones
+        }
+        return dataSource;
     }
     
     //Metodo para obtener conexion

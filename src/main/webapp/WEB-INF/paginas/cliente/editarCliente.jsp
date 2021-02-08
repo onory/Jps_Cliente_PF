@@ -46,7 +46,8 @@
                         <label for="apellido">Apellido</label>
                         <input type="text" class="form-control" name="apellido" required value="${cliente.apellido}">
                     </div>
-                    <div class="form-group">E-mail</label>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
                         <input type="email" class="form-control" name="email" required value="${cliente.email}">
                     </div>
                     <div class="form-group">

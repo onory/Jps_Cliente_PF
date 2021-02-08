@@ -12,10 +12,11 @@ ejemplo de despliegue de informacion
 
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!-- ejerce un formato internacional para la apresiacion de los datos -->
 <fmt:setLocale value="es_MX"/> 
 
-<section>
+<section id="clientes">
     <div class="container">
         <div class="row">
             <div class="col-md-9">
@@ -23,7 +24,7 @@ ejemplo de despliegue de informacion
                     <div class="card-header">
                         <h4>Listado de Clientes</h4>
                     </div>
-                    <table class="table table striped">
+                    <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
@@ -36,10 +37,10 @@ ejemplo de despliegue de informacion
                             <!-- iteramos cada elemento de la lista de clientes-->
                                                                       <!-- Se puede agregar la etiqueta varStatus="status"-->
                                                                       <!-- Para mostrar un valir en idcliente auto incrementable que no sea de la DB-->
-                            <c:forEach var="cliente" items="${clientes}">
+                            <c:forEach var="cliente" items="${clientes}" varStatus="status">
                                 <tr>
                                     <!-- si usamos varStatus cambiamos l asentencia <td>$-{-status.count-}-</td> sin de lo contrario lo obtiene de la DB--->
-                                    <td>${cliente.idCliente}</td> 
+                                    <td>${status.count}</td> 
                                     <td>${cliente.nombre} ${cliente.apellido}</td>
                                     <!-- ejerce un formato internacional MX sobre la consulta en EL de saldo -->
                                     <td><fmt:formatNumber value="${cliente.saldo}" type="currency"/></td>
@@ -54,9 +55,9 @@ ejemplo de despliegue de informacion
                                 
                                 
                             </c:forEach>  
+                                
                         </tbody>
-                        
-                        
+                                                
                     </table>
                 </div>
             </div>
@@ -68,7 +69,7 @@ ejemplo de despliegue de informacion
         
         <div class="card text-center bg-danger text-white mb-3">
             <div class="card-body">
-                <h3>Saldo total</h3>
+                <h3>Saldo Total</h3>
                 <h4 class="dusplay-4">
                     <fmt:formatNumber value="${saldoTotal}" type="currency"/>
                 </h4>
@@ -80,7 +81,7 @@ ejemplo de despliegue de informacion
         <div class="card text-center bg-success text-white mb-3">
             <div class="card-body">
                 <h3>Total Clientes</h3>
-                <h4 class="dusplay-4">
+                <h4 class="display-4">
                     <i class="fas fa-users"></i>${totalClientes}
                 </h4>
             </div>
@@ -88,7 +89,7 @@ ejemplo de despliegue de informacion
                 
     </div>
     
-    
+    <!--Fin Tarjetas para los totales-->
         </div>
     </div>
 </section>
