@@ -1,17 +1,17 @@
-<%-- 
-     configuracion de botones para cabecero separado en otra pagina
---%>
+
+<!-- configuracion de botones para cabecero separado en otra pagina-->
+
 
  <!-- seccion de botones de navegacion -->
 
-<section id="action" class="py-4 mb-4 bg-light">
-        <div class="contaniner">
+<section id="actions" class="py-4 mb-4 bg-light">
+        <div class="container">
             <div class="row">
                 <div class="col-md-3">
                     <!-- data-toogle forrmilario para agregar un numero cliente -->
                     <a href="#" class="btn btn-primary btn-block"
-                       data-toogle="modal" data-targey="#agregarClienteModal">
-                    <i class="fas fa-plues"></i> +  Agregar Cliente
+                       data-toggle="modal" data-target="#agregarClienteModal">
+                    <i class="fas fa-plus"></i> Agregar Cliente
                     </a>
                 </div>
                 

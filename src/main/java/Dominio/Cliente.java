@@ -1,3 +1,6 @@
+// esta calse hace de modelo en estilo MVC
+
+
 package dominio;
 
 public class Cliente {

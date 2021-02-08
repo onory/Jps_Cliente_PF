@@ -69,7 +69,7 @@ public class ClienteDaoJDBC {
             stmt = conn.prepareStatement(SQL_SELECT_BY_ID); // seleccion la sentencia pre diseñada
             stmt.setInt(1, cliente.getIdCliente()); // se establece el parametro de idcliente que requiere la sentencia
             rs = stmt.executeQuery(); //ejecuta el querty
-            rs.absolute(1);// nos posisciona en el primer registro que se requiere ene ste caos 1
+            rs.absolute(1);// nos posisciona en el primer registro que se requiere ene ste caos 1 sugiere  rs.next();. x rs.absolute(1);
 
             String nombre = rs.getString("nombre");
             String apellido = rs.getString("apellido");

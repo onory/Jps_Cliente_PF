@@ -34,14 +34,17 @@ ejemplo de despliegue de informacion
                         </thead>
                         <tbody>
                             <!-- iteramos cada elemento de la lista de clientes-->
+                                                                      <!-- Se puede agregar la etiqueta varStatus="status"-->
+                                                                      <!-- Para mostrar un valir en idcliente auto incrementable que no sea de la DB-->
                             <c:forEach var="cliente" items="${clientes}">
                                 <tr>
-                                    <td>${cliente.idCliente}</td>
+                                    <!-- si usamos varStatus cambiamos l asentencia <td>$-{-status.count-}-</td> sin de lo contrario lo obtiene de la DB--->
+                                    <td>${cliente.idCliente}</td> 
                                     <td>${cliente.nombre} ${cliente.apellido}</td>
                                     <!-- ejerce un formato internacional MX sobre la consulta en EL de saldo -->
                                     <td><fmt:formatNumber value="${cliente.saldo}" type="currency"/></td>
                                     <td>
-                                        <!-- boton que manda la accion de editar y el valor? de idCliente que se modificara -->
+                                        <!-- boton que manda la accion de editar y el valor? de idCliente que se modificara por peticion GET-->
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&idCliente=${cliente.idCliente}"
                                            class="btn btn-secondary">
                                            <i class="fas fa-angle-double-right"></i> Editar
@@ -89,3 +92,7 @@ ejemplo de despliegue de informacion
         </div>
     </div>
 </section>
+                
+<!-- incluir el JSP agregar cliente modal -->
+
+<jsp:include page="/WEB-INF/paginas/cliente/agregarCliente.jsp"/>
